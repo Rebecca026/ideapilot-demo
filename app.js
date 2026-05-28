@@ -5,9 +5,10 @@ const content = document.querySelector("#briefContent");
 
 function renderBrief(brief) {
   title.textContent = brief.title;
-  meta.textContent = brief.saved
-    ? "已通过后端生成，并保存到数据库。"
-    : "已通过后端生成。数据库未配置时，记录不会持久保存。";
+  const sourceText =
+    brief.source === "openai" ? "已通过 OpenAI API 生成" : "已通过后端备用逻辑生成";
+  const savedText = brief.saved ? "并保存到数据库。" : "数据库未配置时，记录不会持久保存。";
+  meta.textContent = `${sourceText}，${savedText}`;
   content.innerHTML = brief.sections
     .map((section, index) => {
       const className =
@@ -63,6 +64,7 @@ form.addEventListener("submit", async (event) => {
 
 renderBrief({
   title: "刚开始做 AI 产品的产品经理的上线方案",
+  source: "fallback",
   saved: false,
   sections: [
     {
