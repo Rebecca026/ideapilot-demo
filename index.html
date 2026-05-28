@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IdeaPilot Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace" aria-label="IdeaPilot 产品方案生成器">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">AI Product Demo</p>
+            <h1>IdeaPilot</h1>
+          </div>
+          <a class="deploy-link" href="README.md">部署说明</a>
+        </header>
+
+        <section class="intro">
+          <div>
+            <h2>把一个产品想法整理成可展示的一页方案</h2>
+            <p>
+              输入目标用户、使用场景和核心痛点，前端会请求后端生成方案，并把记录保存到数据库。
+            </p>
+          </div>
+        </section>
+
+        <section class="builder">
+          <form id="ideaForm" class="panel">
+            <label>
+              产品对象
+              <input
+                id="audience"
+                name="audience"
+                type="text"
+                value="刚开始做 AI 产品的产品经理"
+                required
+              />
+            </label>
+
+            <label>
+              使用场景
+              <input
+                id="scenario"
+                name="scenario"
+                type="text"
+                value="快速把一个想法做成可以给同事看的线上 demo"
+                required
+              />
+            </label>
+
+            <label>
+              核心痛点
+              <textarea id="pain" name="pain" rows="4" required>不知道 demo 和真正上线之间差了哪些步骤，也不确定怎么把本地页面变成公网链接。</textarea>
+            </label>
+
+            <button type="submit">生成方案</button>
+          </form>
+
+          <article class="result" aria-live="polite">
+            <p class="eyebrow">Generated Brief</p>
+            <h2 id="briefTitle">从本地想法到公网 Demo</h2>
+            <p id="briefMeta" class="brief-meta">等待提交后生成一条完整记录。</p>
+            <div id="briefContent" class="brief-grid"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
