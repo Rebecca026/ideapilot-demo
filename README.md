@@ -1,4 +1,4 @@
-# IdeaPilot 全栈 Demo 部署手册
+# IdeaPilot 全栈 Demo 部署手册--
 
 这个 demo 用来练习 AI 产品经理必须会的完整上线链路：
 
